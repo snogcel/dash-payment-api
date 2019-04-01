@@ -1,0 +1,305 @@
+api server listening on port 3001
+api server listening on port 3001
+api server listening on port 3001
+fs.js:646
+  return binding.open(pathModule._makeLong(path), stringToFlags(flags), mode);
+                 ^
+
+Error: ENOENT: no such file or directory, open '../certificates/api.slayer.work.crt'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.readFileSync (fs.js:551:33)
+    at /home/jon/development/dash-payment-api/lib/paymentRequest.js:234:23
+    at /home/jon/development/dash-payment-api/lib/paymentRequest.js:207:25
+    at /home/jon/development/node-client/lib/bcypher.js:640:3
+    at Request._callback (/home/jon/development/node-client/lib/bcypher.js:98:4)
+    at Request.self.callback (/home/jon/development/node-client/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/home/jon/development/node-client/node_modules/request/request.js:1163:10)
+api server listening on port 3001
+afd90a24cf0dadd11bc71a4a69a0fff76416340f6f2b869d3ea103783dfc28a0
+- payment details -
+{ hash: 'afd90a24cf0dadd11bc71a4a69a0fff76416340f6f2b869d3ea103783dfc28a0',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: '9e0c9672-eb83-4236-9046-1f6aa17ffaa1',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'Xh6rTfJkEz5seYCWfRXAAhiuSMSyUAmN7z',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Object],
+        expires: [Object],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [Object] } },
+  status: 'pending' }
+
+/home/jon/development/dash-payment-api/node_modules/mongodb/lib/mongo_client.js:785
+          throw err;
+          ^
+MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/jon/development/dash-payment-api/node_modules/mongodb/node_modules/mongodb-core/lib/topologies/server.js:503:11)
+    at emitOne (events.js:116:13)
+    at Pool.emit (events.js:211:7)
+    at Connection.<anonymous> (/home/jon/development/dash-payment-api/node_modules/mongodb/node_modules/mongodb-core/lib/connection/pool.js:326:12)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at Connection.emit (events.js:214:7)
+    at Socket.<anonymous> (/home/jon/development/dash-payment-api/node_modules/mongodb/node_modules/mongodb-core/lib/connection/connection.js:245:50)
+    at Object.onceWrapper (events.js:315:30)
+    at emitOne (events.js:116:13)
+api server listening on port 3001
+09a932719556128e127c2e9cf71016466632f93bc2acbb7b1b8daa1aefc7ee37
+- payment details -
+{ hash: '09a932719556128e127c2e9cf71016466632f93bc2acbb7b1b8daa1aefc7ee37',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: 'be8b72cb-991d-4626-866d-6bd37fae058a',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'XhxGtUz6HWPRhEhUN2LM7fyhERr8r4D7a2',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Object],
+        expires: [Object],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [Object] } },
+  status: 'pending' }
+TypeError: Cannot read property 'address' of undefined
+    at /home/jon/development/dash-payment-api/lib/index.js:66:30
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at /home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:281:22
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:275:10)
+TypeError: Cannot read property 'address' of undefined
+    at /home/jon/development/dash-payment-api/lib/index.js:66:30
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at /home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:281:22
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:275:10)
+api server listening on port 3001
+{ address: 'XhxGtUz6HWPRhEhUN2LM7fyhERr8r4D7a2' }
+TypeError: Cannot read property 'address' of undefined
+    at /home/jon/development/dash-payment-api/lib/index.js:68:30
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at /home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:281:22
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:275:10)
+{ address: 'XhxGtUz6HWPRhEhUN2LM7fyhERr8r4D7a2' }
+TypeError: Cannot read property 'address' of undefined
+    at /home/jon/development/dash-payment-api/lib/index.js:68:30
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/jon/development/dash-payment-api/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/jon/development/dash-payment-api/node_modules/express/lib/router/layer.js:95:5)
+    at /home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:281:22
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/jon/development/dash-payment-api/node_modules/express/lib/router/index.js:275:10)
+api server listening on port 3001
+<Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >
+More than one instance of dashcore-lib found. Please make sure that you are not mixing instances of classes of the different versions of dashcore.
+api server listening on port 3001
+- payment details -
+{ hash: 'xKGZolm0G5HHtGmu8KdRNu_esKTQUYD7G717wnesDxU',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: '179ea2de-4248-4f3e-9ee9-cb9a2f5beab8',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'XmC6pdnvoEyrdA1Er9c6gXtvYqSbWQy3Cq',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+(node:7862) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+/home/jon/development/dash-payment-api/node_modules/mongodb/lib/topologies/server.js:240
+            throw err;
+            ^
+
+Error: connect ECONNREFUSED 127.0.0.1:27017
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1189:14)
+More than one instance of dashcore-lib found. Please make sure that you are not mixing instances of classes of the different versions of dashcore.
+api server listening on port 3001
+- payment details -
+{ hash: 'Dk9ahHPXKaHlt7ZbOOXVkFbhcrKYu1cxnJmnRqKrZSU',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: 'ced0fc0d-cec4-4fbb-b126-85dac85c365a',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'XdaeDbJncxg9LR3cydsxNHyBTdi62huLqK',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+(node:8962) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+- payment details -
+{ hash: '1q9NrTkzwCfN3GLaxfeI5MwgAByWUY-_hp4L0g-HOmo',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: '2795360e-6954-4fe6-a364-5a4989acff2a',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'XdR1umnxwHVz4h1pDnmszMMKsBPfXbLYmy',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+More than one instance of dashcore-lib found. Please make sure that you are not mixing instances of classes of the different versions of dashcore.
+api server listening on port 3001
+NaN
+- payment details -
+{ hash: 'ejyNsPjBvXtprU2LTedwXURmyVeId80J93yVTI9Qu0E',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: 'b0356212-0704-4e60-945e-d8a266aedc2a',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'XnSaNGwFbtu46RoCLVXPxNVtD26cbT1piL',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+(node:9993) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+More than one instance of dashcore-lib found. Please make sure that you are not mixing instances of classes of the different versions of dashcore.
+api server listening on port 3001
+- payment details -
+{ hash: 'BZx6BFY8MNJLj7VmW5vUXWWjoyAHrdEXgG7vDILX12s',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: '9c646ba0-148d-46f6-aa49-281656ecab53',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'Xectu2XMNWZr2zqioYvBB5RnPDkg5Ssk8y',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'main',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+(node:10260) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+More than one instance of dashcore-lib found. Please make sure that you are not mixing instances of classes of the different versions of dashcore.
+api server listening on port 3001
+- payment details -
+{ hash: 'bK7fxIpeynZMAcL3r4RsNZ8LMOVUAu8pVMOYVyCvV0o',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: '0257fa35-a974-49a2-9188-c0550ced18fd',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'yiyhzZQaimQeGGbe3Xc3v7qo4vJHMbyC6m',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'test',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+(node:10532) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+More than one instance of dashcore-lib found. Please make sure that you are not mixing instances of classes of the different versions of dashcore.
+api server listening on port 3001
+- payment details -
+{ hash: '1U835oiniGdILRFOChCDaX7X_ix67WwxUEovAbs6ay0',
+  request: <Buffer 08 01 12 0b 78 35 30 39 2b 73 68 61 32 35 36 1a bc 12 0a a7 09 30 82 04 a3 30 82 03 8b a0 03 02 01 02 02 10 0c 70 cd cc a6 c3 4a 03 df 1b 4e b3 1d 5a ... >,
+  webhook_id: '5567fdb8-d0d9-462b-b10c-8a1949bc5255',
+  webhook: 
+   { event: 'unconfirmed-tx',
+     address: 'yiyhzZQaimQeGGbe3Xc3v7qo4vJHMbyC6m',
+     url: 'https://api.slayer.work/paymentWebHook' },
+  payment_details: 
+   PaymentProtocol {
+     messageType: 'PaymentDetails',
+     message: 
+      { network: 'test',
+        outputs: [Array],
+        time: [Long],
+        expires: [Long],
+        memo: 'A payment request from the merchant.',
+        payment_url: 'https://api.slayer.work/payment',
+        merchant_data: [ByteBuffer],
+        required_fee_rate: null },
+     currency: 'BTC' },
+  status: 'pending' }
+(node:11616) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.

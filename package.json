@@ -1,0 +1,31 @@
+{
+  "name": "dash-payment-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./start.sh",
+    "stop": "./stop.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snogcel/dash-payment-api.git"
+  },
+  "author": "Jon Kindel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snogcel/dash-payment-api/issues"
+  },
+  "homepage": "https://github.com/snogcel/dash-payment-api#readme",
+  "dependencies": {
+    "base64url": "^2.0.0",
+    "@dashevo/dashcore-lib": "^0.17.1",
+    "@dashevo/dashcore-payment-protocol": "1.7.0",
+    "blockcypher": "^0.2.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.1",
+    "request": "^2.83.0"
+  }
+}

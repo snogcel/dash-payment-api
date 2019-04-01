@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="bitcore-lib-dash.min.js"></script>
+    <script src="bitcore-payment-protocol.min.js"></script>
+
+    <script type="text/javascript">
+
+    var Bitcore = require('bitcore-lib-dash');
+    var PaymentProtocol = require('bitcore-payment-protocol');
+
+    var Buffer = Bitcore.deps.Buffer;
+
+
+    var fetch = function(opts,cb) {
+        var self = this;
+        var provider = opts.provider || self.provider;
+
+        if(opts.type && opts.route && opts.data) {
+
+            jQuery.ajax({
+                type: opts.type,
+                url: provider + opts.route,
+                data: JSON.stringify(opts.data),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'text',
+                crossDomain: true,
+                success: function (data, status, jqXHR) {
+                    cb(null, data);
+                },
+                error: function (jqXHR, status, error) {
+
+                    console.log(jqXHR);
+                    console.log(status);
+                    console.log(error);
+
+                    var err = eval("(" + jqXHR.responseText + ")");
+                    cb(err, null);
+                }
+            });
+
+
+        } else {
+            cb('missing parameter',null);
+        }
+    };
+
+    var opts = {
+        type: "GET",
+        provider: "https://api.slayer.work/",
+        route: "paymentRequest",
+        data: {
+            test: "true"
+        }
+    };
+
+    jQuery('document').ready(function() {
+
+        fetch(opts, function(err, res) {
+            if (err !== null) {
+                console.log("error!");
+            } else {
+
+                var response = JSON.parse(res.toString());
+                var body = PaymentProtocol.PaymentRequest.decode(new Buffer(response.data));
+
+                /*
+                var response = new Buffer(res);
+                console.log(response);
+                var body = PaymentProtocol.PaymentRequest.decode(response);
+                */
+
+                console.log(body);
+
+                var request = new PaymentProtocol().makePaymentRequest(body);
+
+                var version = request.get('payment_details_version');
+                var pki_type = request.get('pki_type');
+                var pki_data = request.get('pki_data');
+                var serializedDetails = request.get('serialized_payment_details');
+                var signature = request.get('signature');
+
+                console.log(request);
+
+                // Verify the signature
+                var verified = request.verify(); // doesn't work in browserified version for some reason....
+
+                // Get the payment details
+                var decodedDetails = PaymentProtocol.PaymentDetails.decode(serializedDetails);
+                var details = new PaymentProtocol().makePaymentDetails(decodedDetails);
+                var network = details.get('network');
+                var outputs = details.get('outputs');
+                var time = details.get('time');
+                var expires = details.get('expires');
+                var memo = details.get('memo');
+                var payment_url = details.get('payment_url');
+                var merchant_data = details.get('merchant_data');
+
+                console.log(details);
+
+                var buffer = new Buffer(outputs[0].script.buffer.slice(outputs[0].script.offset, outputs[0].script.limit));
+
+                var script = Bitcore.Script.fromBuffer(buffer);
+
+                var address = script.toAddress(network); // payment address
+                var amount = outputs[0].amount.low; // payment amount
+
+                console.log(address.toString());
+                console.log(amount);
+
+
+            }
+        });
+
+    });
+
+
+    </script>
+
+</head>
+<body>
+
+<br /><br />
+
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>eCharge Proof of Concept</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="payment_amount">Payment Amount</label>
+                <div class="col-md-4">
+                    <input id="payment_amount" name="payment_amount" type="text" placeholder="placeholder" class="form-control input-md" value="100000">
+                    <span class="help-block">note: use duffs</span>
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="api_response">API Response</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="api_response" name="api_response"></textarea>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+                    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+<a href="dash://?r=https://api.slayer.work/paymentRequest">test link</a><br /><br />
+
+<a href="dash://?r=http://10.1.10.101:3001/paymentRequest">test link2</a>
+
+</body>
+</html>
